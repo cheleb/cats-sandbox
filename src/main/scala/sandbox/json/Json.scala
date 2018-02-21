@@ -1,4 +1,4 @@
-package json
+package sandbox.json
 
 sealed trait Json
 

@@ -20,6 +20,7 @@ object JsonWriterInstances {
 class JsonSpec extends WordSpec {
 
   import JsonWriterInstances._
+
   "Person json writer" should {
     "write person as json through interface object" in {
       Json.toJson(Person("Agnes", 160))

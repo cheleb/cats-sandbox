@@ -3,8 +3,11 @@ package sandbox.json
 sealed trait Json
 
 final case class JsObject(get: Map[String, Json]) extends Json
+
 final case class JsString(get: String) extends Json
+
 final case class JsNumber(get: Int) extends Json
+
 case object JsNull extends Json
 
 trait JsonWriter[A] {
@@ -18,7 +21,9 @@ object Json {
 }
 
 object JsonSyntax {
+
   implicit class JsonWriterOps[A](value: A) {
-    def toJson(implicit writer: JsonWriter[A]) = writer.write(value )
+    def toJson(implicit writer: JsonWriter[A]) = writer.write(value)
   }
+
 }

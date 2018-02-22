@@ -1,10 +1,11 @@
 package sandbox.printable
 
 import org.scalatest.{Matchers, WordSpec}
+import sandbox.Cat
 
 class PrintableSpec extends WordSpec with Matchers {
 
-  case class Cat(name: String, age: Int, color: String)
+
 
   val felix = Cat("felix", 2, "black/white")
 

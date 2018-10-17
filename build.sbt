@@ -1,7 +1,7 @@
 name := "cats-sandbox"
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.12.6"
+scalaVersion := "2.12.7"
 
 scalacOptions ++= Seq(
   "-encoding", "UTF-8",   // source files are in UTF-8
@@ -10,12 +10,20 @@ scalacOptions ++= Seq(
   "-feature",             // warn about misused language features
   "-language:higherKinds",// allow higher kinded types without `import scala.language.higherKinds`
   "-Xlint",               // enable handy linter warnings
-  "-Xfatal-warnings",     // turn compiler warnings into errors
+//  "-Xfatal-warnings",     // turn compiler warnings into errors
   "-Ypartial-unification" // allow the compiler to unify type constructors of different arities
 )
 
-libraryDependencies += "org.typelevel" %% "cats-core" % "1.1.0"
+libraryDependencies += "org.typelevel" %% "cats-core" % "1.4.0"
+
+val circeVersion = "0.10.0"
+
+libraryDependencies ++= Seq(
+  "io.circe" %% "circe-core",
+  "io.circe" %% "circe-generic",
+  "io.circe" %% "circe-parser"
+).map(_ % circeVersion)
 
 libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % Test
 
-addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.6")
+//addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8")

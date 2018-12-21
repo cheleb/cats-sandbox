@@ -1,7 +1,7 @@
 name := "cats-sandbox"
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.12.8"
 
 scalacOptions ++= Seq(
   "-encoding", "UTF-8",   // source files are in UTF-8
@@ -16,7 +16,7 @@ scalacOptions ++= Seq(
 
 libraryDependencies += "org.typelevel" %% "cats-core" % "1.5.0"
 
-val circeVersion = "0.10.1"
+val circeVersion = "0.11.0"
 
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core",

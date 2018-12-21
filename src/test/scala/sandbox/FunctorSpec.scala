@@ -56,6 +56,20 @@ class FunctorSpec extends WordSpec {
       func4(123)
     }
 
+    "box fun" in {
+      final case class Box[A](value: A)
+
+      implicit val bf = new Functor[Box]{
+        override def map[A, B](fa: Box[A])(f: A => B): Box[B] = Box(f(fa.value))
+      }
+
+      val box = Box[Int](123)
+
+      box.map(value => value + 1)
+
+
+    }
+
     "tree functor" in {
       implicit val treeFunctor = new Functor[Tree] {
         override def map[A, B](tree: Tree[A])(f: A => B): Tree[B] =

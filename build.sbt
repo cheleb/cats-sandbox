@@ -14,9 +14,9 @@ scalacOptions ++= Seq(
   "-Ypartial-unification" // allow the compiler to unify type constructors of different arities
 )
 
-libraryDependencies += "org.typelevel" %% "cats-core" % "1.4.0"
+libraryDependencies += "org.typelevel" %% "cats-core" % "1.5.0"
 
-val circeVersion = "0.10.0"
+val circeVersion = "0.10.1"
 
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core",

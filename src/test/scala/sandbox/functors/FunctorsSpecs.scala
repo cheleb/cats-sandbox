@@ -5,6 +5,7 @@ import scala.language.higherKinds
 import cats._
 import cats.implicits._
 
+
 import cats.Functor
 
 import org.scalatest.WordSpec
@@ -28,16 +29,25 @@ object FunctorsSpecs {
   }
 }
 
+object Tree {
+  def branch[A](left: Tree[A], right: Tree[A]): Tree[A] =
+    Branch(left, right)
+
+  def leaf[A](value: A): Tree[A] =
+    Leaf(value)
+}
+
+
 
 class FunctorsSpecs extends WordSpec {
 
 
   "Functions" should {
     "oo" in {
-
+      import cats.syntax.functor._
       import FunctorsSpecs._
       
-      Branch(Leaf(10), Leaf(20)).map( _ * 2)
+      Tree.branch(Tree.leaf(10), Tree.leaf(20)).map( _ * 2)
 
     }
   }

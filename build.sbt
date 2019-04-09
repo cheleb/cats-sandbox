@@ -24,6 +24,6 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser"
 ).map(_ % circeVersion)
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.5" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.7" % Test
 
 //addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8")

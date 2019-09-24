@@ -1,7 +1,7 @@
 name := "cats-sandbox"
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.13.1"
 
 scalacOptions ++= Seq(
   "-encoding", "UTF-8",   // source files are in UTF-8
@@ -11,12 +11,11 @@ scalacOptions ++= Seq(
   "-language:higherKinds",// allow higher kinded types without `import scala.language.higherKinds`
   "-Xlint",               // enable handy linter warnings
 //  "-Xfatal-warnings",     // turn compiler warnings into errors
-  "-Ypartial-unification" // allow the compiler to unify type constructors of different arities
 )
 
-libraryDependencies += "org.typelevel" %% "cats-core" % "1.6.0"
+libraryDependencies += "org.typelevel" %% "cats-effect" % "2.0.0"
 
-val circeVersion = "0.11.1"
+val circeVersion = "0.12.1"
 
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core",
@@ -24,6 +23,19 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser"
 ).map(_ % circeVersion)
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.7" % Test
+configs(IntegrationTest extend(Test))
+
+Defaults.itSettings
+
+
+
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test,it"
+libraryDependencies += "com.storm-enroute" %% "scalameter" % "0.19" % "test,it"
+
+
+testFrameworks += new TestFramework(
+    "org.scalameter.ScalaMeterFramework")
+  
+  logBuffered := false
 
 //addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.8")

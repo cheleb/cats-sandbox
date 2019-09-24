@@ -1,8 +1,5 @@
 package sandbox.functors
 
-import scala.language.higherKinds
-
-import cats._
 import cats.implicits._
 
 

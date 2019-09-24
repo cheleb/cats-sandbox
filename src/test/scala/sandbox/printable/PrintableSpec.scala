@@ -5,7 +5,7 @@ import sandbox.Cat
 
 class PrintableSpec extends WordSpec with Matchers {
 
-
+  val felixTheCat = "felix is a 2 year black/white cat.";
 
   val felix = Cat("felix", 2, "black/white")
 
@@ -25,7 +25,7 @@ class PrintableSpec extends WordSpec with Matchers {
     }
 
     "format cat" in {
-      Printable.format(felix) shouldEqual "felix is a 2 year black/white cat."
+      Printable.format(felix) shouldEqual felixTheCat
     }
 
     "print a cat" in {
@@ -35,7 +35,7 @@ class PrintableSpec extends WordSpec with Matchers {
 
     "format cat using syntax" in {
       import PrintableSyntax._
-      felix.format shouldEqual "felix is a 2 year black/white cat."
+      felix.format shouldEqual felixTheCat
     }
 
     "print a cat using syntax" in {

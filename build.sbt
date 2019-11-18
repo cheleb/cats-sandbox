@@ -23,6 +23,14 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser"
 ).map(_ % circeVersion)
 
+lazy val doobieVersion = "0.8.2"
+
+libraryDependencies ++= Seq(
+  "org.tpolecat" %% "doobie-core"     % doobieVersion,
+  "org.tpolecat" %% "doobie-postgres" % doobieVersion,
+  "org.tpolecat" %% "doobie-specs2"   % doobieVersion % Test
+)
+
 configs(IntegrationTest extend(Test))
 
 Defaults.itSettings
